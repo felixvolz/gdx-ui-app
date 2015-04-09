@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.broken_e.ui.BaseScreen;
 import com.broken_e.ui.UiApp;
+import com.broken_e.ui.testapp.game.Constants;
 
 /**
  * the first screen you see in the game.
@@ -31,8 +32,8 @@ public class MainScreen extends BaseScreen {
 			}
 		});
 		mainTable.defaults().pad(6f);
-		mainTable.setBackground(app.skin.getDrawable("window1"));
-		mainTable.setColor(app.skin.getColor("lt-blue"));
+		//mainTable.setBackground(app.skin.getDrawable("window1"));
+		//mainTable.setColor(app.skin.getColor("lt-blue"));
 		mainTable.add(label("gdx-ui-app: test!", Color.GREEN));
 		mainTable.row();
 		mainTable.add(button);
@@ -56,5 +57,10 @@ public class MainScreen extends BaseScreen {
 	public void onBackPress() {
 		Gdx.app.exit();
 	}
+
+    @Override
+    public String getBackground() {
+        return Constants.MAIN_MENU_BACKGROUND_ANIMATION;
+    }
 
 }

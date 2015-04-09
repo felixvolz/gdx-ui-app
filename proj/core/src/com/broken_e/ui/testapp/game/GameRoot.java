@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -26,7 +25,7 @@ import com.broken_e.ui.testapp.game.MobRemoveEvent.MobTouchedEvent;
 public class GameRoot extends Group {
 
 	private final GameScreen screen;
-	private final TextureRegion region;
+	//private final TextureRegion region;
 	/** the game is in a different coordinate system than the screen ui */
 	private final OrthographicCamera cam = new OrthographicCamera();
 	private float screenW = Gdx.graphics.getWidth();
@@ -39,9 +38,15 @@ public class GameRoot extends Group {
 	public final Stats stats = new Stats();
 	private boolean gameOver;
 
+
+    AnimationActor animation;
+
 	public GameRoot(GameScreen screen, TextureAtlas atlas) {
 		this.screen = screen;
-		region = atlas.findRegion("face1");
+		//region = atlas.findRegion("face1");
+
+        animation = Assets.instance.getAnimationActor(Constants.KANYE_ANIMATION);
+       // background = Assets.instance.getAnimationActor(Constants.LEVEL_ONE_BACKGROUND_ANIMATION);
 	}
 
 	/** used because actors usually need to run the full constructor before adding things to them */
@@ -67,6 +72,14 @@ public class GameRoot extends Group {
 				return false;
 			}
 		});
+//
+//        //BACKGROUND
+//        background.setPosition(0,0);
+//        background.setBounds(0, 0, getWidth(), getHeight());
+//        addActor(background);
+//        //BACKGROUND
+
+
 		stats.reset();
 		gameOver = false;
 		return this;
@@ -106,7 +119,7 @@ public class GameRoot extends Group {
 			if (end > .3f)
 				end -= .01f;
 			
-			addActor(Pools.obtain(Mob.class).init(region, end * 10f));
+			addActor(Pools.obtain(AnimationMob.class).init(animation, end * 10f));
 		}
 		super.act(delta);
 	}

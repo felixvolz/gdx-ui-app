@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Pools;
  */
 public abstract class MobRemoveEvent extends Event {
 	public void removeMob() {
-		Mob mob = (Mob) getTarget();
+		AnimationMob mob = (AnimationMob) getTarget();
 		mob.remove();
 		Pools.free(mob);
 	}
@@ -20,7 +20,7 @@ public abstract class MobRemoveEvent extends Event {
 	public static class MobTouchedEvent extends MobRemoveEvent {
 		@Override
 		public void removeMob() {
-			Mob mob = (Mob) getTarget();
+            AnimationMob mob = (AnimationMob) getTarget();
 			mob.addAction(Actions.rotateBy(720f, .42f));
 			mob.addAction(Actions.sequence(Actions.scaleTo(0f, 0f, .42f), Actions.run(new Runnable() {
 				@Override
@@ -35,7 +35,7 @@ public abstract class MobRemoveEvent extends Event {
 	public static class MobExplodeEvent extends MobRemoveEvent {
 		@Override
 		public void removeMob() {
-			Mob mob = (Mob) getTarget();
+            AnimationMob mob = (AnimationMob) getTarget();
 			mob.addAction(Actions.sequence(Actions.scaleTo(42f, 42f, .42f), Actions.run(new Runnable() {
 				@Override
 				public void run() {

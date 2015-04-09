@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.broken_e.ui.testapp.game.Assets;
 
 /**
  * an ApplicationListener that is similar to gdx.Game but has screen transitions and built-in boilerplate code for a few
@@ -44,6 +46,8 @@ public abstract class UiApp implements ApplicationListener {
 	public void create() {
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
+
+        Assets.instance.init(new AssetManager());
 
 		stage = new Stage(new StretchViewport(w, h));
 		atlas = new TextureAtlas(atlasPath());
@@ -133,10 +137,12 @@ public abstract class UiApp implements ApplicationListener {
 
 	@Override
 	public void resume() {
+        Assets.instance.init(new AssetManager());
 	}
 
 	@Override
 	public void dispose() {
+        Assets.instance.dispose();
 		stage.dispose();
 		skin.dispose();
 		atlas.dispose();

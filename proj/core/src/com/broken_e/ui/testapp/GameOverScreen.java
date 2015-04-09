@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.broken_e.ui.BaseScreen;
 import com.broken_e.ui.UiApp;
+import com.broken_e.ui.testapp.game.Constants;
 import com.broken_e.ui.testapp.game.Stats;
 
 /**
@@ -15,10 +16,15 @@ import com.broken_e.ui.testapp.game.Stats;
  */
 public class GameOverScreen extends BaseScreen {
 
+
+
 	public GameOverScreen(final UiApp app, Stats stats) {
 		super(app);
-		mainTable.setBackground(app.skin.getDrawable("window1"));
-		mainTable.setColor(app.skin.getColor("dark-blue"));
+//		mainTable.setBackground(app.skin.getDrawable("window1"));
+//		mainTable.setColor(app.skin.getColor("dark-blue"));
+
+
+
 		mainTable.setSkin(app.skin);
 		mainTable.add("Game Over!");
 		mainTable.row();
@@ -47,5 +53,10 @@ public class GameOverScreen extends BaseScreen {
 	public void onBackPress() {
 		app.switchScreens(new MainScreen(app));
 	}
+
+    @Override
+    public String getBackground() {
+        return Constants.GAMEOVER_BACKGROUND_ANIMATION;
+    }
 
 }

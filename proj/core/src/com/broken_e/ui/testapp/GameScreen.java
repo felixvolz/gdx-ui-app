@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.StringBuilder;
 import com.broken_e.ui.BaseScreen;
 import com.broken_e.ui.UiApp;
+import com.broken_e.ui.testapp.game.Constants;
 import com.broken_e.ui.testapp.game.GameRoot;
 import com.broken_e.ui.testapp.game.Stats;
 
@@ -21,8 +22,10 @@ public class GameScreen extends BaseScreen {
 
 	public GameScreen(UiApp app) {
 		super(app);
-		mainTable.setBackground(app.skin.getDrawable("window1"));
-		mainTable.setColor(app.skin.getColor("lt-green"));
+		//mainTable.setBackground(app.skin.getDrawable("window1"));
+		//mainTable.setColor(app.skin.getColor("lt-green"));
+
+
 		mainTable.addActor(new GameRoot(this, app.atlas).init());
 
 		Label lblPointText = new Label("Points: ", app.skin);
@@ -47,7 +50,12 @@ public class GameScreen extends BaseScreen {
 		app.switchScreens(new MainScreen(app));
 	}
 
-	public void pointsChanged(StringBuilder points) {
+    @Override
+    public String getBackground() {
+        return Constants.LEVEL_ONE_BACKGROUND_ANIMATION;
+    }
+
+    public void pointsChanged(StringBuilder points) {
 		lblPoints.setText(points);
 	}
 

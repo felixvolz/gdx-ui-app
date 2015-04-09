@@ -3,16 +3,52 @@ tex.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-face1
+background1
+  rotate: false
+  xy: 1, 325
+  size: 900, 675
+  orig: 900, 675
+  offset: 0, 0
+  index: 1
+background1
+  rotate: false
+  xy: 1, 325
+  size: 900, 675
+  orig: 900, 675
+  offset: 0, 0
+  index: 2
+kanye
   rotate: false
   xy: 1, 4
-  size: 100, 100
-  orig: 100, 100
+  size: 213, 319
+  orig: 467, 620
+  offset: 127, 156
+  index: 3
+kanye
+  rotate: false
+  xy: 903, 856
+  size: 101, 144
+  orig: 101, 144
+  offset: 0, 0
+  index: 1
+kanye
+  rotate: false
+  xy: 216, 211
+  size: 84, 112
+  orig: 128, 128
+  offset: 22, 8
+  index: 2
+window1
+  rotate: false
+  xy: 903, 790
+  size: 64, 64
+  split: 6, 6, 6, 6
+  orig: 64, 64
   offset: 0, 0
   index: -1
 patchThick
   rotate: false
-  xy: 103, 6
+  xy: 216, 177
   size: 32, 32
   split: 4, 4, 4, 4
   orig: 32, 32
@@ -20,7 +56,7 @@ patchThick
   index: -1
 patchThickDown
   rotate: false
-  xy: 169, 72
+  xy: 302, 291
   size: 32, 32
   split: 4, 4, 4, 4
   orig: 32, 32
@@ -33,12 +69,15 @@ white-pixel
   orig: 1, 1
   offset: 0, 0
   index: -1
-window1
+
+tex2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainMenu
   rotate: false
-  xy: 103, 40
-  size: 64, 64
-  split: 6, 6, 6, 6
-  pad: 4, 4, 4, 4
-  orig: 64, 64
+  xy: 1, 1
+  size: 900, 633
+  orig: 900, 633
   offset: 0, 0
-  index: -1
+  index: 1
